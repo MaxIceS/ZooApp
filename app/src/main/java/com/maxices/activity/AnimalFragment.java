@@ -16,23 +16,22 @@ import entities.animals.Animal;
  */
 public class AnimalFragment extends Fragment{
 
-    public static final String EXTRA_CRIME_ID = "com.android.crime_id";
+    public static final String ANIMAL_ID = "com.android.animal_id";
 
     private Animal mCurrentAnimal;
-    private TextView textView;
+    private TextView mTextView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        UUID animalId = (UUID)getArguments().getSerializable(EXTRA_CRIME_ID);
+        UUID animalId = (UUID)getArguments().getSerializable(ANIMAL_ID);
         mCurrentAnimal = AnimalGenerator.get().getAnimal(animalId);
     }
 
-    //возвращаю типа изменения в нужную строку
     public static AnimalFragment newInstance(UUID crimeId) {
         Bundle args = new Bundle();
-        args.putSerializable(EXTRA_CRIME_ID, crimeId);
+        args.putSerializable(ANIMAL_ID, crimeId);
         AnimalFragment fragment = new AnimalFragment();
         fragment.setArguments(args);
         return fragment;
@@ -47,16 +46,18 @@ public class AnimalFragment extends Fragment{
 
 
     private void wireTextView(View v){
-        textView = (TextView)v.findViewById(R.id.textView);
-        textView.setText(generateAnimalText(mCurrentAnimal));
+        mTextView = (TextView)v.findViewById(R.id.textView);
+        mTextView.setText(generateAnimalText(mCurrentAnimal));
     }
 
     private String generateAnimalText(Animal animal){
         StringBuilder temp = new StringBuilder("Привет, я ");
         temp.append(animal.getType().getTitle());
+
         if (false == animal.isMonochrome()){
             temp.append(", мой цвет " + animal.getColor().newGetColor());
         }
+
         temp.append(", меня зовут " + animal.getName());
         temp.append(", я " +  animal.eat() + " " + animal.getFood().getFoodName());
 

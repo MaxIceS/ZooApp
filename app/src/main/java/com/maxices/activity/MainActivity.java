@@ -10,7 +10,7 @@ public class MainActivity extends SingleFragmentActivity {
     @Override
     protected Fragment createFragment() {
                 UUID crimeId = (UUID)getIntent()
-                .getSerializableExtra(AnimalFragment.EXTRA_CRIME_ID);
+                .getSerializableExtra(AnimalFragment.ANIMAL_ID);
         return AnimalFragment.newInstance(crimeId);
     }
 }

@@ -14,20 +14,18 @@ import entities.animals.Animal;
 
 public class AnimalListFragment extends ListFragment {
 
-    private ArrayList<Animal> animals = AnimalGenerator.get().getAnimals();
+    private ArrayList<Animal> mAnimals = AnimalGenerator.get().getAnimals();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getActivity().setTitle(R.string.nazva);
-        ListttAdapter adapter = new ListttAdapter(animals);
+        AnimalAdapter adapter = new AnimalAdapter(mAnimals);
         setListAdapter(adapter);
-
     }
 
-    private class ListttAdapter extends ArrayAdapter<Animal> {
-        public ListttAdapter(ArrayList<Animal> listtt) {
-            super(getActivity(), 0, listtt);
+    private class AnimalAdapter extends ArrayAdapter<Animal> {
+        public AnimalAdapter(ArrayList<Animal> animal) {
+            super(getActivity(), 0, animal);
         }
 
         @Override
@@ -36,36 +34,35 @@ public class AnimalListFragment extends ListFragment {
                 convertView = getActivity().getLayoutInflater()
                         .inflate(R.layout.list_item_listtt, null);
             }
-            Animal c = getItem(position);
+
+            Animal animal = getItem(position);
 
             TextView titleTextView =
                     (TextView)convertView.findViewById(R.id.crime_list_item_titleTextView);
-            titleTextView.setText(c.getType().toString());
-
+            titleTextView.setText(animal.getType().toString());
 
             TextView infaTextView =
                     (TextView)convertView.findViewById(R.id.crime_list_item_infaTextView);
-            infaTextView.setText(c.getName().toString());
+            infaTextView.setText(animal.getName().toString());
 
             return convertView;
         }
     }
 
-
     @Override
     public void onResume() {
         super.onResume();
-        ((ListttAdapter)getListAdapter()).notifyDataSetChanged();
+        ((AnimalAdapter)getListAdapter()).notifyDataSetChanged();
     }
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        Animal c = ((Animal)getListAdapter().getItem(position));
+        Animal animal = ((Animal)getListAdapter().getItem(position));
         Toast toast = Toast.makeText(getActivity(),
-                c.getName() + " was clicked", Toast.LENGTH_SHORT);
+                animal.getName() + " was clicked", Toast.LENGTH_SHORT);
         toast.show();
-        Intent i = new Intent(getActivity(), MainActivity.class);
-        i.putExtra(AnimalFragment.EXTRA_CRIME_ID, c.getGuid());
-        startActivity(i);
+        Intent intent = new Intent(getActivity(), MainActivity.class);
+        intent.putExtra(AnimalFragment.ANIMAL_ID, animal.getGuid());
+        startActivity(intent);
     }
 }

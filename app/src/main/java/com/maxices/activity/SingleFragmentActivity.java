@@ -25,5 +25,6 @@ public abstract class SingleFragmentActivity extends FragmentActivity {
                     .commit();
         }
     }
+
     protected abstract Fragment createFragment();
 }
