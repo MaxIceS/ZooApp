@@ -1,6 +1,7 @@
 package com.maxices.activity;
 
 import android.app.Fragment;
+import android.util.Log;
 
 import java.util.UUID;
 

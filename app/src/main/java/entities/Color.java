@@ -1,9 +1,7 @@
 package entities;
 
-/**
- * Created by Максимилиан on 08.07.2015.
- */
 public enum Color {
+
     Red, Green, Black, White;
 
     private String color;

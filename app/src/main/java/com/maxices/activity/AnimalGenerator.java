@@ -9,13 +9,11 @@ import entities.Color;
 import entities.Food;
 import entities.animals.Animal;
 
-
 public class AnimalGenerator {
 
     private static final int COUNT_ANIMALS = 128;
     private ArrayList<Animal> mAnimals;
     private static AnimalGenerator sInstance;
-
     public ArrayList<Animal> getAnimals() {
         return mAnimals;
     }
@@ -29,7 +27,6 @@ public class AnimalGenerator {
         int animalsTypesCount = AnimalTypes.values().length;
         int colorTypesCount = Color.values().length;
         int foodTypesFood = Food.values().length;
-
         String[] names = {"Барсик", "Шарик", "Юра", "Аркадий", "Владимир", "Аллоизий", "Мурзик"};
         for(int i = 0; i < COUNT_ANIMALS; i++){
             mAnimals.add(AnimalsFactory.Create(AnimalTypes.values()[i % animalsTypesCount],

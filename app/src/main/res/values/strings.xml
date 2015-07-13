@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">ZooApp</string>
+
+    <string name="hi">Привет</string>
+    <string name="i">я</string>
+    <string name="my">мой</string>
+    <string name="me">меня</string>
+    <string name="color">цвет</string>
+    <string name="name">зовут</string>
+
+    <string name="barsik">Барсик</string>
+    <string name="ball">Шарик</string>
+    <string name="jura">Юра</string>
+    <string name="arcade">Аркадий</string>
+    <string name="vladimir">Владимир</string>
+    <string name="alloizy">Аллоизий</string>
+    <string name="murzik">Мурзик</string>
+    
 </resources>

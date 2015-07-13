@@ -2,13 +2,9 @@ package entities;
 
 import entities.animals.*;
 
-/**
- * Created by Максимилиан on 08.07.2015.
- */
 public class AnimalsFactory {
     public static Animal Create(AnimalTypes type, String name, Color color, Food food){
         Animal result = null;
-
         switch (type){
             case Dog:
                 result = new Dog(name, color, food);
@@ -32,7 +28,6 @@ public class AnimalsFactory {
                 result = new Horse(name, color, food);
                 break;
         }
-
         return result;
     }
 }

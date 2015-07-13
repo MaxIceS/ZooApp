@@ -1,9 +1,7 @@
 package entities;
 
-/**
- * Created by Максимилиан on 08.07.2015.
- */
 public enum Food {
+
     Grass, Meat, Milk;
 
     private String name;

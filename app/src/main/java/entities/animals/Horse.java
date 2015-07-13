@@ -10,7 +10,6 @@ import entities.Food;
 public class Horse extends Animal {
 
     public Horse(String name, Color color, Food food) {
-
         super(AnimalTypes.Horse, name, color, food);
     }
 
@@ -18,7 +17,6 @@ public class Horse extends Animal {
     public String eat() {
         return "ем";
     }
-
 
     @Override
     public boolean isMonochrome(){

@@ -6,16 +6,11 @@ import entities.AnimalTypes;
 import entities.Color;
 import entities.Food;
 
-/**
- * Created by Максимилиан on 08.07.2015.
- */
 public abstract class Animal {
-
 
     public UUID getGuid() {
         return guid;
     }
-
     private UUID guid;
     private String name;
     private Color color;
@@ -29,6 +24,7 @@ public abstract class Animal {
     public void setFood(Food food) {
         this.food = food;
     }
+
     public AnimalTypes getType() {
         return type;
     }
